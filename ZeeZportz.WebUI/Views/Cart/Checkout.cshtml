@@ -1,32 +1,43 @@
 ﻿@model ZeeZportz.Domain.Entities.ShippingDetails
 
 @{
-    ViewBag.Title = "ZeeZportz: Checkout";
+    ViewBag.Title = "SportStore: Checkout";
 }
 
 <h2>Check out now</h2>
-Please enter your details, and we'll ship your goods right away!
+<p>Please enter your details, and we'll ship your goods right away!</p>
+
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
+    <h3>Ship to</h3>
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <h3>Address</h3>
+
+    foreach (var property in ViewData.ModelMetadata.Properties)
+    {
+        if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+        {
+            <div class="form-group">
+                <label>@(property.DisplayName ?? property.PropertyName)</label>
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+            </div>
+        }
+    }
+
+    <h3>Options</h3>
+    <div class="checkbox">
+        <label>
+            @Html.EditorFor(x => x.GiftWrap)
+            Gift wrap these items
+        </label>
+    </div>
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Complete order" />
+    </div>
 }
-<h3>Ship to</h3>
-<div>Name: @Html.EditorFor(x => x.Name)</div>
-
-<h3>Address</h3>
-<div>Line 1: @Html.EditorFor(x => x.Line1)</div>
-<div>Line 2: @Html.EditorFor(x => x.Line2)</div>
-<div>Line 3: @Html.EditorFor(x => x.Line3)</div>
-<div>City: @Html.EditorFor(x => x.City)</div>
-<div>State: @Html.EditorFor(x => x.State)</div>
-<div>Zip: @Html.EditorFor(x => x.Zip)</div>
-<div>Country: @Html.EditorFor(x => x.Country)</div>
-
-<h3>Options</h3>
-<label>
-    @Html.EditorFor(x => x.GiftWrap)
-    Gift wrap these items
-</label>
-<p align="center">
-    <input class="actionButtons" type="submit" value="Complete order" />
-</p>}

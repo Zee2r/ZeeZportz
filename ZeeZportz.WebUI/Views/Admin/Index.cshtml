@@ -8,7 +8,7 @@
 
 <hr />
 <h1>All Products</h1>
-<table class="Grid table-responsive table-striped">
+<table class="table">
     
     <tr>
         <th>ID</th>
@@ -24,7 +24,9 @@
             <td class="NumericCol">@item.Price.ToString("c")</td>
             <td>
                 @using (Html.BeginForm("Delete", "Admin"))
-                {@Html.Hidden("ProductID", item.ProductID) <input type="submit" value="Delete" />}
+                {
+                    @Html.Hidden("ProductID", item.ProductID) <input type="submit" value="Delete" class="btn btn-sm btn-warning" />
+                }
             </td>
         </tr>}
 </table>

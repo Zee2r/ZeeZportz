@@ -4,29 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/Site.css" type="text/css" rel="stylesheet" />*@
+    <style>
+        .navbar-right {
+            float: right !important;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    </style>
 </head>
 <body>
-    <div id="header">
-        @{Html.RenderAction("Summary", "Cart");
-
-
-
-        }
-        <div class="title">
-
-            @Html.ActionLink("ZeeZportz", "List", "Product")
-            <span> @Html.ActionLink("Login", "Login", "Account")</span>
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="/Product/List">
+            <span class="hidden-xs">ZeeZportz</span>
+            <div class="visible-xs">Zee</div>
+            <div class="visible-xs">Zportz</div>
+        </a>
+        @Html.Action("Summary", "Cart")
+    </div>
+    <div class="visible-xs">
+        @Html.Action("Menu", "Nav", new { horizontalLayout = true })
+    </div>
+    <div class="row panel">
+        <div class="col-sm-3 hidden-xs">
+            @Html.Action("Menu", "Nav")
         </div>
-        
-
-    </div>    
-    <div id="categories">
-        @{ Html.RenderAction("Menu", "Nav"); }
-    </div>     
-    <div id="content">
-        <hr />
-        @RenderBody()     
+        <div class="col-xs-12 col-sm-8">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>

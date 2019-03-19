@@ -20,33 +20,42 @@ namespace ZeeZportz.WebUI.Controllers
             orderProcessor = proc;
         }
 
-        public ViewResult Index(Cart cart, string returnUrl) {
-            return View(new CartIndexViewModel {
+        public ViewResult Index(Cart cart, string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
                 Cart = cart,
-                ReturnUrl = returnUrl }
+                ReturnUrl = returnUrl
+            }
             );
         }
-        public PartialViewResult Summary(Cart cart) {
+        public PartialViewResult Summary(Cart cart)
+        {
             return PartialView(cart);
         }
 
         [HttpPost]
         public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
-            if (cart.Lines.Count() == 0) {
+            if (cart.Lines.Count() == 0)
+            {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
                 return View("Completed");
-            } else {
-                return View(shippingDetails); }
+            } else
+            {
+                return View(shippingDetails);
+            }
         }
 
 
-        public ViewResult Checkout() {
+        public ViewResult Checkout()
+        {
             return View(new ShippingDetails());
         }
 

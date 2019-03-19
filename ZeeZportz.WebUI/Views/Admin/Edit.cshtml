@@ -5,22 +5,35 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <hr />
-<h1>Edit @Model.Name</h1>
-@using (Html.BeginForm("Edit", "Admin", 
-    FormMethod.Post, new { enctype = "multipart/form-data" })){
 
-    @Html.EditorForModel()
+@using (Html.BeginForm("Edit", "Admin",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h1>Edit @Model.Name</h1>
+    <div class="well">
+        <div class="form-group ">
 
-<div class="editor-label">Image</div> 
-<div class="editor-field">        
-    @if (Model.ImageData == null){
-        @:None         
-     } else {             
-        <img width="150" height="150" 
-             src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />        
-    }
-    <div>Upload new image: <input type="file" name="Image" /></div>    
-    </div>              
-    <input type="submit" value="Save" />     
-    @Html.ActionLink("Cancel and return to List", "Index") 
+            @Html.EditorForModel(null,null,new { Model.ProductID, @class = "form-control" })
+        </div>
+        <div class="editor-label">Image</div>
+
+        <div class="form-control">
+            @if (Model.ImageData == null)
+            {
+                @:None
+            }
+            else
+            {
+                <img width="150" height="150"
+                     src="@Url.Action("GetImage", "Product", new { Model.ProductID, @class = "form-control" })" />
+            }
+
+
+        </div>
+        <div>Upload new image: <input type="file" name="Image" class="form-control" /></div>
+        <div>
+            <input type="submit" value="Save" class="form-control alert-success" />
+            @Html.ActionLink("Cancel and return to List", "Index")
+        </div>
+    </div>
 }

@@ -4,14 +4,16 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<hr />
-<h1>Log In</h1>
-
-<p>Please log in to access the administrative area:</p> 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true) 
-    @Html.EditorForModel() 
+<div class="well center-block">
+    <hr />
+    <h1>Log In</h1>
+
+    <p>Please log in to access the administrative area:</p>
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
     <p><input type="submit" value="Log in" /></p>
+</div>
 }
 

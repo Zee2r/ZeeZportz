@@ -63,9 +63,9 @@ DIV.Message {
     display: none;
 }
 
-.editor-field {
+/*.editor-field {
     margin-bottom: .8em;
-}
+}*/
 
 .editor-label {
     font-weight: bold;
@@ -75,11 +75,11 @@ DIV.Message {
     content: ":"
 }
 
-.text-box {
+/*.text-box {
     width: 25em;
 }
 
 .multi-line {
     height: 5em;
     font-family: Segoe UI, Verdana;
-} 
+}*/ 
