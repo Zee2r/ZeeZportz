@@ -8,17 +8,24 @@
 </head>
 <body>
     <div id="header">
-        @{Html.RenderAction("Summary", "Cart");}
+        @{Html.RenderAction("Summary", "Cart");
+
+
+
+        }
         <div class="title">
 
             @Html.ActionLink("ZeeZportz", "List", "Product")
-
+            <span> @Html.ActionLink("Login", "Login", "Account")</span>
         </div>
+        
+
     </div>    
     <div id="categories">
         @{ Html.RenderAction("Menu", "Nav"); }
     </div>     
-    <div id="content">        
+    <div id="content">
+        <hr />
         @RenderBody()     
     </div>
 </body>
