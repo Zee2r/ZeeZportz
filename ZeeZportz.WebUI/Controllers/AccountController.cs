@@ -8,13 +8,17 @@ using ZeeZportz.WebUI.Models;
 
 namespace ZeeZportz.WebUI.Controllers
 {
+    
     public class AccountController : Controller
     {
         IAuthProvider authProvider;
 
         public AccountController(IAuthProvider auth) { authProvider = auth; }
 
-        public ViewResult Login() { return View(); }
+        public ViewResult Login()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Login(LoginViewModel model, string returnUrl)

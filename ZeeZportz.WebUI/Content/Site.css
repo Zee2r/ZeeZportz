@@ -24,12 +24,16 @@ BODY {
     margin: 0;}
 
 DIV#header DIV.title, DIV.item H3, DIV.item H4, DIV.pager A {
-    font: bold 1em "Arial Narrow", "Franklin Gothic Medium", Arial;}
+    font: bold 1em "Arial Narrow", "Franklin Gothic Medium", Arial;
+
+}
 
 DIV#header {
     background-color: #444;
     border-bottom: 2px solid #111;
-    color: White;}
+    color: White;
+
+}
 
     DIV#header DIV.title {
         font-size: 2em;

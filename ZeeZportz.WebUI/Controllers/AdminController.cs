@@ -7,7 +7,8 @@ using ZeeZportz.Domain.Abstract;
 using ZeeZportz.Domain.Entities;
 
 namespace ZeeZportz.WebUI.Controllers
-{   
+{
+    
     public class AdminController : Controller
     {
         private IProductRepository repository;

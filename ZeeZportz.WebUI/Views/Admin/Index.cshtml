@@ -5,14 +5,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
+<hr />
 <h1>All Products</h1>
-<table class="Grid">
-    <tr>         
-    <th>ID</th>         
-    <th>Name</th>         
-    <th class="NumericCol">Price</th>         
-    <th>Actions</th>     
-        </tr>     
+<table class="Grid table-responsive table-striped">
+    
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th class="NumericCol">Price</th>
+        <th>Actions</th>
+    </tr>
     @foreach (var item in Model)
     {
         <tr>
@@ -24,5 +27,5 @@
                 {@Html.Hidden("ProductID", item.ProductID) <input type="submit" value="Delete" />}
             </td>
         </tr>}
-</table> 
+</table>
 <p>@Html.ActionLink("Add a new product", "Create")</p> 
